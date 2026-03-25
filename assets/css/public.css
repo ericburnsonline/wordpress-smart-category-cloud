@@ -1,0 +1,69 @@
+
+.scc {
+    max-width: 1100px;
+    margin: 0 auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.scc-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    padding: 16px;
+    margin-bottom: 24px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: #fafafa;
+}
+
+.scc-term {
+    text-decoration: none;
+    color: #0f5da6;
+    line-height: 1;
+    display: inline-block;
+    transition: transform 0.12s ease, opacity 0.12s ease;
+}
+
+.scc-term:hover {
+    transform: scale(1.08);
+    opacity: 0.85;
+}
+
+.scc-term.active {
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.scc-posts {
+    display: grid;
+    gap: 18px;
+}
+
+.scc-post {
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.scc-post:last-child {
+    border-bottom: none;
+}
+
+.scc-post h3 {
+    margin: 0 0 6px;
+    font-size: 1.3rem;
+    line-height: 1.2;
+}
+
+.scc-post h3 a {
+    text-decoration: none;
+    color: #111;
+}
+
+.scc-post h3 a:hover {
+    text-decoration: underline;
+}
+
+.scc-date {
+    font-size: 0.9rem;
+    color: #666;
+}
