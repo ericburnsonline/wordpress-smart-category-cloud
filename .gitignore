@@ -1,6 +1,10 @@
 # Wordpress - ignore core, configuration, examples, uploads and logs.
 # https://github.com/github/gitignore/blob/main/WordPress.gitignore
 
+# Private config (keep example, ignore real secrets)
+/private/*
+!/private/private.example.php
+
 # Core
 #
 # Note: if you want to stage/commit WP core files
