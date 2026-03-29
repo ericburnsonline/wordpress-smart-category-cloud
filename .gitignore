@@ -5,6 +5,13 @@
 /private/*
 !/private/private.example.php
 
+# OS / editor junk
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
 # Core
 #
 # Note: if you want to stage/commit WP core files
