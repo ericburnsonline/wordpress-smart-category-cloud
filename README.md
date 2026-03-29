@@ -19,6 +19,10 @@ Clicking a category filters the blog listing and displays the most recent posts 
 
 ---
 
+## Screenshot
+
+![Smart Category Cloud](assets/screenshot-1.png)
+
 ## How It Works
 
 Each category is scored using a combination of:
