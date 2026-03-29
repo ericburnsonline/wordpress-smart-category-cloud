@@ -68,7 +68,7 @@ This is an early version of the plugin.
 - Basic styling included
 - No AJAX filtering yet (page reload used)
 - Not performance optimized yet
-- Not tested
+- Minimal testing
 ---
 
 ## Roadmap
