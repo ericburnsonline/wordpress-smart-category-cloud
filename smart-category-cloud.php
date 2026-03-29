@@ -1,9 +1,11 @@
 <?php
 /**
  * Plugin Name: Smart Category Cloud
+ * Plugin URI: https://github.com/yourusername/wordpress-smart-category-cloud
  * Description: WordPress plugin that generates a weighted category word cloud where topic size reflects both post count and recent activity.
  * Version: 1.1.0
  * Author: Eric Burns
+ * Author URI: https://blog.ericburnsonline.com
  * Text Domain: wordpress-smart-category-cloud
  * Requires at least: 5.5
  * Requires PHP: 7.4
