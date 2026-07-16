@@ -1,9 +1,10 @@
 <?php
+
 /**
  * Plugin Name: Smart Category Cloud
- * Plugin URI: https://github.com/yourusername/wordpress-smart-category-cloud
+ * Plugin URI: https://github.com/ericburnsonline/wordpress-smart-category-cloud
  * Description: WordPress plugin that generates a weighted category word cloud where topic size reflects both post count and recent activity.
- * Version: 1.1.0
+ * Version: 1.2.0
  * Author: Eric Burns
  * Author URI: https://blog.ericburnsonline.com
  * Text Domain: wordpress-smart-category-cloud
@@ -14,19 +15,23 @@
  */
 
 if (!defined('ABSPATH')) {
-    exit;
+	exit;
 }
 
-define('SCC_VERSION', '1.1.0');
+define('SCC_VERSION', '1.2.0');
+
 define('SCC_FILE', __FILE__);
+
 define('SCC_DIR', plugin_dir_path(__FILE__));
+
 define('SCC_URL', plugin_dir_url(__FILE__));
+
 define('SCC_BASENAME', plugin_basename(__FILE__));
 
 require_once SCC_DIR . 'includes/class-scc-plugin.php';
 
 if (file_exists(SCC_DIR . 'private/private.php')) {
-    require_once SCC_DIR . 'private/private.php';
+	require_once SCC_DIR . 'private/private.php';
 }
 
 SCC_Plugin::instance();
