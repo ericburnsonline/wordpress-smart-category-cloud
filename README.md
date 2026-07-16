@@ -17,6 +17,10 @@ Clicking a category filters the blog listing and displays the most recent posts 
 - Lightweight, no dependencies (no jQuery)
 - Designed to work across most WordPress themes
 
+= 1.2.0 =
+* Added a settings page under Settings > Smart Category Cloud.
+* Added an optional separator between category links.
+* Improved stylesheet formatting for maintainability.
 ---
 
 ## Screenshot
