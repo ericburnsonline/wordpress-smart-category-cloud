@@ -97,7 +97,10 @@ This is an early version of the plugin.
 - No external dependencies
 - Built with WordPress best practices in mind
 
+- Improved category separator rendering by sizing separators relative to neighboring category font sizes for a more balanced appearance.
+
 ---
+
 
 ## License
 
