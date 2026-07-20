@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 	exit;
 }
 
-define('SCC_VERSION', '1.2.0');
+define('SCC_VERSION', '1.2.1');
 
 define('SCC_FILE', __FILE__);
 
