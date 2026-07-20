@@ -1,90 +1,92 @@
 .scc {
-	max-width: 1100px;
-	margin: 0 auto;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    max-width: 1100px;
+    margin: 0 auto;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 .scc-cloud {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 10px 14px;
-	padding: 16px;
-	margin-bottom: 24px;
-	border: 1px solid #ddd;
-	border-radius: 12px;
-	background: #fafafa;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 14px;
+    padding: 16px;
+    margin-bottom: 24px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: #fafafa;
 }
 
 .scc-term {
-	display: inline-block;
-	color: #0f5da6;
-	line-height: 1;
-	text-decoration: none;
-	transition: transform 0.12s ease, opacity 0.12s ease;
+    display: inline-block;
+    color: #0f5da6;
+    line-height: 1;
+    text-decoration: none;
+    transition: transform 0.12s ease, opacity 0.12s ease;
 }
 
 .scc-term:hover {
-	opacity: 0.85;
-	transform: scale(1.08);
+    opacity: 0.85;
+    transform: scale(1.08);
 }
 
 .scc-term.active {
-	font-weight: 700;
-	text-decoration: underline;
+    font-weight: 700;
+    text-decoration: underline;
 }
 
 /*
  * Optional category separators.
  *
- * The separator is attached to the category link that follows it rather than
- * being added as a separate flex item. This prevents a bullet from wrapping
- * independently from its category.
+ * The PHP renderer assigns each separator an inline font size based on
+ * the smaller of the two neighboring category links. The CSS controls
+ * spacing, alignment, and appearance without overriding that calculated size.
  */
 .scc-cloud.scc-has-separators {
-	column-gap: 10px;
+    column-gap: 8px;
 }
 
-.scc-cloud.scc-has-separators .scc-term:not(:first-child)::before {
-	display: inline-block;
-	margin-right: 10px;
-	color: #888;
-	font-size: 8px;
-	line-height: 1;
-	vertical-align: middle;
-	content: "•";
-	transform: translateY(-0.08em);
+.scc-separator {
+    display: inline-block;
+    flex: 0 0 auto;
+    margin: 0 2px;
+    color: #888;
+    line-height: 1;
+    vertical-align: middle;
+    opacity: 0.7;
+    transform: translateY(-0.04em);
+    user-select: none;
 }
 
 .scc-posts {
-	display: grid;
-	gap: 18px;
+    display: grid;
+    gap: 18px;
 }
 
 .scc-post {
-	padding-bottom: 16px;
-	border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .scc-post:last-child {
-	border-bottom: none;
+    border-bottom: none;
 }
 
 .scc-post h3 {
-	margin: 0 0 6px;
-	font-size: 1.3rem;
-	line-height: 1.2;
+    margin: 0 0 6px;
+    font-size: 1.3rem;
+    line-height: 1.2;
 }
 
 .scc-post h3 a {
-	color: #111;
-	text-decoration: none;
+    color: #111;
+    text-decoration: none;
 }
 
 .scc-post h3 a:hover {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
 .scc-date {
-	color: #666;
-	font-size: 0.9rem;
+    color: #666;
+    font-size: 0.9rem;
 }
