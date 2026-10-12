@@ -1,115 +1,154 @@
 # Smart Category Cloud
 
-Smart Category Cloud is a WordPress plugin that generates a dynamic category word cloud where each category’s size reflects both the number of posts and how recently those posts were published.
+Smart Category Cloud is a WordPress plugin that generates a dynamic category cloud where each category's size reflects both the number of posts it contains and how recently it has been active.
 
-Clicking a category filters the blog listing and displays the most recent posts first.
-
----
-
-## Features
-
-- Weighted category cloud based on:
-  - Post count (log-scaled)
-  - Recency (exponential decay)
-- Clean, responsive layout
-- Category filtering via URL parameter
-- Posts sorted by most recent first
-- Lightweight, no dependencies (no jQuery)
-- Designed to work across most WordPress themes
-
-= 1.2.0 =
-* Added a settings page under Settings > Smart Category Cloud.
-* Added an optional separator between category links.
-* Improved stylesheet formatting for maintainability.
----
-
-## Screenshot
+Selecting a category filters the displayed post list and shows the most recent matching posts first.
 
 ![Smart Category Cloud](assets/screenshot-1.png)
 
-## How It Works
+## Project Status
 
-Each category is scored using a combination of:
+**Active Development**
 
-- Post volume (normalized using logarithmic scaling)
-- Recency of the latest post (decay over time)
+Core plugin functionality is implemented and usable.
 
-These scores are combined to determine font size in the cloud, making active and relevant topics more prominent.
+### Currently Implemented
 
----
+- Weighted category scoring based on post count and recency
+- Dynamic category font sizing
+- URL-based category filtering
+- Recent-post listing for the selected category
+- Configurable posts per page through shortcode attributes
+- Configurable minimum and maximum font sizes
+- Responsive styling
+- Optional separators between category links
+- WordPress settings page for appearance options
+- No external JavaScript libraries or jQuery dependency
+
+### Not Currently Implemented
+
+- AJAX filtering
+- Query or result caching
+- Pagination
+- Configurable scoring weights
+- Configurable recency decay
+- Broader accessibility enhancements
+
+## How Scoring Works
+
+Each category receives a score based on two factors:
+
+- **Post count:** logarithmically normalized relative to the site's largest category
+- **Recency:** exponential decay based on the date of the category's most recent post
+
+The current scoring formula weights:
+
+- Post count: 65%
+- Recency: 35%
+- Recency decay interval: 90 days
+
+The resulting score determines the category's font size between the configured minimum and maximum values.
+
+These scoring weights are currently defined in code rather than through the WordPress settings interface.
 
 ## Usage
 
-Add the shortcode to any page or post:
+Add the shortcode to any WordPress page or post:
 
-    [smart_category_cloud]
+```text
+[smart_category_cloud]
+```
 
-Optional parameters:
+Optional shortcode parameters:
 
-    [smart_category_cloud posts_per_page="10" min_font="14" max_font="42"]
+```text
+[smart_category_cloud posts_per_page="10" min_font="14" max_font="42"]
+```
 
----
+### Parameters
+
+- `posts_per_page` - Maximum number of posts displayed. Default: `10`
+- `min_font` - Minimum category font size in pixels. Default: `14`
+- `max_font` - Maximum category font size in pixels. Default: `42`
+
+## Category Filtering
+
+Selecting a category adds an `scc_cat` query parameter to the page URL.
+
+For example:
+
+```text
+?scc_cat=wordpress
+```
+
+The page reloads and the plugin displays posts from that category in reverse chronological order.
+
+AJAX filtering is not currently implemented.
+
+## Settings
+
+After activating the plugin, open:
+
+**Settings > Smart Category Cloud**
+
+The current settings interface includes an option to display separators between category links.
+
+Additional configuration options are planned for future versions.
 
 ## Installation
 
-1. Upload the plugin folder to:
+1. Download or clone the repository.
+2. Copy the plugin directory to:
 
-       /wp-content/plugins/
+```text
+/wp-content/plugins/
+```
 
-2. Activate the plugin in WordPress
+3. Activate **Smart Category Cloud** from the WordPress Plugins screen.
+4. Add the `[smart_category_cloud]` shortcode to a page or post.
+5. Optionally configure appearance under **Settings > Smart Category Cloud**.
 
-3. Add the shortcode to a page
+## Example Behavior
 
----
+A category containing many posts and recent activity receives a higher score and appears larger than a category with fewer or older posts.
 
-## Example
+The cloud therefore emphasizes topics that are both substantial and currently active rather than ranking categories purely by total post count.
 
-A category with many recent posts will appear larger than one with older or fewer posts, helping highlight active topics.
+## Future Work
 
----
+Potential future improvements include:
 
-## Current Status
-
-This is an early version of the plugin.
-
-- Core functionality implemented
-- Basic styling included
-- No AJAX filtering yet (page reload used)
-- Not performance optimized yet
-- Minimal testing
----
-
-## Roadmap
-
-- AJAX filtering (no page reload)
-- Improved performance (reduce query load)
-- Admin settings UI
-- Caching (transients)
-- Pagination support
+- AJAX filtering without a full page reload
+- Transient or other query caching
+- Pagination
+- Configurable scoring weights
+- Configurable recency decay
+- Additional appearance controls
 - Accessibility improvements
-
----
+- Performance optimization for sites with large numbers of categories
 
 ## Development Notes
 
-- Prefix: SCC_
-- Text Domain: wordpress-smart-category-cloud
-- No external dependencies
-- Built with WordPress best practices in mind
+- Shortcode: `smart_category_cloud`
+- PHP prefix/class convention: `SCC_`
+- Text domain: `wordpress-smart-category-cloud`
+- Minimum WordPress version: 5.5
+- Minimum PHP version: 7.4
+- No external JavaScript dependencies
 
-- Improved category separator rendering by sizing separators relative to neighboring category font sizes for a more balanced appearance.
+## Changelog
 
----
+### 1.2.0
 
+- Added a settings page under **Settings > Smart Category Cloud**
+- Added optional separators between category links
+- Improved separator sizing relative to neighboring category font sizes
+- Improved stylesheet formatting and maintainability
 
 ## License
 
-GPL v2 or later
-
----
+GPL v2 or later.
 
 ## Contributing
 
-Contributions, suggestions, and improvements are welcome.
-
----
+Contributions, suggestions, bug reports, and improvements are welcome.
